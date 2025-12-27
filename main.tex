@@ -1,0 +1,191 @@
+\documentclass[11pt]{article}
+
+% -------------------------
+% Packages
+% -------------------------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{physics}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% -------------------------
+% Title Information
+% -------------------------
+\title{\textbf{On the Misinterpretation of Wave Energy in the Assessment of Pile Loads}\\
+\large A Comparison Between Energy-Based and Morison Force-Based Approaches}
+
+\author{
+Nikhil Chutturu\\
+\small Mooring Engineer, Turnagain Marine Construction\\
+}
+
+\date{\today}
+
+% -------------------------
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Wave loading on vertical piles is sometimes interpreted through an energy-based
+framework, by analogy with berthing or impact problems.
+This technical note demonstrates that such an interpretation leads to
+non-physical conclusions when applied to wave-induced pile response.
+A direct comparison is presented between an energy-flux-based formulation
+and a force-based formulation using Morison’s equation.
+The analysis shows that wave-induced pile response is fundamentally governed
+by hydrodynamic forces derived from particle kinematics rather than
+by accumulated wave energy.
+\end{abstract}
+
+\vspace{1em}
+
+% =========================================================
+\section{Introduction}
+
+Vertical piles are commonly used to support marine structures such as piers,
+floating docks, and dolphins.
+Design wave loads on such piles are typically evaluated using force-based
+methods derived from linear wave theory and hydrodynamic coefficients.
+
+Occasionally, wave loading is interpreted as an energy-transfer problem,
+motivated by the use of energy concepts in berthing and fender design.
+This note examines the validity of such an interpretation.
+
+% =========================================================
+
+% =========================================================
+\section{Wave Dispersion and Group Velocity}
+
+For linear waves, the dispersion relation is given by
+\begin{equation}
+\omega^2 = g k \tanh(kh)
+\end{equation}
+where $\omega = 2\pi/T$ is the angular frequency and $k$ is the wave number.
+
+The phase velocity is
+\begin{equation}
+C = \frac{\omega}{k}
+\end{equation}
+
+and the corresponding group velocity is
+\begin{equation}
+C_g = \frac{1}{2} C
+\left( 1 + \frac{2kh}{\sinh(2kh)} \right)
+\end{equation}
+
+The group velocity governs the propagation of wave energy.
+
+% =========================================================
+\section{Energy-Based Interpretation}
+
+The mean wave energy per unit horizontal area is
+\begin{equation}
+E = \frac{1}{8} \rho g H^2
+\end{equation}
+
+The wave energy flux per unit crest width is therefore
+\begin{equation}
+P = E C_g
+\end{equation}
+
+If a pile of diameter $D$ is assumed to intercept this energy flux,
+the corresponding power associated with the pile is
+\begin{equation}
+P_{\text{pile}} = P D
+\end{equation}
+
+Assuming continuous exposure, the accumulated energy over a duration $t$ is
+\begin{equation}
+E_{\text{acc}}(t) = P_{\text{pile}} t
+\end{equation}
+
+This formulation implies an unbounded increase in energy demand with time.
+
+% =========================================================
+\section{Force-Based Interpretation Using Morison Equation}
+
+Wave loading on slender piles arises from hydrodynamic forces induced by
+water particle velocity and acceleration.
+
+The inline force per unit length is expressed by Morison’s equation:
+\begin{equation}
+f(z,t) =
+\frac{1}{2} \rho C_D D u(z,t)\abs{u(z,t)}
++
+\rho C_M \frac{\pi D^2}{4} a(z,t)
+\end{equation}
+
+where $u(z,t)$ and $a(z,t)$ are the horizontal particle velocity and
+acceleration, respectively.
+
+Under linear wave theory,
+\begin{equation}
+u(z,t) = \frac{\omega H}{2}
+\frac{\cosh k(z+h)}{\sinh kh}
+\cos(\omega t)
+\end{equation}
+
+\begin{equation}
+a(z,t) = \omega u(z,t)
+\end{equation}
+
+The total inline force and overturning moment on the pile are obtained
+by integrating along the pile length.
+
+% =========================================================
+\section{Comparison and Discussion}
+
+The energy-based formulation predicts a load demand that increases
+linearly with exposure duration, independent of structural response.
+Such behavior is inconsistent with observed wave-induced pile behavior,
+which remains oscillatory and bounded.
+
+In contrast, the force-based Morison formulation produces finite,
+physically meaningful forces and moments directly applicable
+to structural analysis.
+
+Wave energy is therefore best interpreted as a descriptor of sea state
+severity rather than as a design load acting on piles.
+
+% =========================================================
+\section{Conclusions}
+
+Wave-induced pile loading is fundamentally a force–response problem.
+Energy-based interpretations, while intuitive, are not appropriate
+for assessing pile strength or deflection under wave action.
+
+Design methodologies should continue to rely on hydrodynamic force models
+based on wave kinematics and established formulations such as Morison’s equation.
+
+\vspace{1em}
+
+\noindent\textbf{Keywords:} wave loading, piles, Morison equation, wave energy, coastal engineering
+
+\begin{thebibliography}{9}
+
+\bibitem{cem}
+USACE, \emph{Coastal Engineering Manual}, EM 1110-2-1100.
+
+\bibitem{morison}
+Morison, J.R., O’Brien, M.P., Johnson, J.W., Schaaf, S.A.,
+\emph{The Force Exerted by Surface Waves on Piles},
+Petroleum Transactions, AIME, 1950.
+
+\bibitem{sarpkaya}
+Sarpkaya, T., Isaacson, M.,
+\emph{Mechanics of Wave Forces on Offshore Structures},
+Van Nostrand Reinhold, 1981.
+
+\bibitem{dnv}
+DNV-RP-C205,
+\emph{Environmental Conditions and Environmental Loads}.
+
+\end{thebibliography}
+
+
+\end{document}
