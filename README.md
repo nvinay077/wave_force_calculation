@@ -1,21 +1,14 @@
 # Wave Energy vs Morison Force Approach
 
-This repository contains a short technical note clarifying why
-wave energy concepts are not appropriate for assessing wave-induced
-loads on vertical piles.
+This repository contains a short theory-focused technical note
+examining why wave energy concepts are not applicable to the
+assessment of wave-induced loads on vertical piles.
 
-The note compares:
-- an energy-flux-based interpretation
-- a force-based hydrodynamic interpretation using Morison’s equation
+📄 **Technical note (PDF):**
+[Download here](wave_force.pdf)
 
-The document is written as a theory-focused technical note
-and is intended for coastal and offshore engineers.
+📁 **Source files:**
+- `main.tex` – LaTeX source
+- references included inline
 
-## Contents
-- `main.tex` – LaTeX source (Overleaf compatible)
-- `references.bib` – bibliography
-- `figures/` – figures
-
-## Compilation
-Compile using standard LaTeX tools or Overleaf.
 
